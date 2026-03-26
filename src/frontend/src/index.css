@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 1 0 0;
+    --foreground: 0.2 0.04 255;
+    --card: 1 0 0;
+    --card-foreground: 0.2 0.04 255;
+    --popover: 1 0 0;
+    --popover-foreground: 0.2 0.04 255;
+    --primary: 0.65 0.18 45;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.97 0.005 250;
+    --secondary-foreground: 0.2 0.04 255;
+    --muted: 0.97 0.005 250;
+    --muted-foreground: 0.45 0.02 250;
+    --accent: 0.65 0.18 45;
+    --accent-foreground: 1 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 1 0 0;
+    --border: 0.91 0.005 250;
+    --input: 0.91 0.005 250;
+    --ring: 0.65 0.18 45;
+    --dark: 0.2 0.04 255;
+    --dark-foreground: 1 0 0;
+    --section-gray: 0.975 0.005 250;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 32s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+  .hero-grid {
+    background-color: #1b2a4a;
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.04) 1px,
+        transparent 1px
+      ), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #f68c1e, #ee4d2f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-gradient {
+    background: linear-gradient(0deg, #f68c1e 3%, #ee4d2f 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .service-card:hover {
+    border-color: #f68c1e;
+    box-shadow: 0 8px 32px rgba(246, 140, 30, 0.12);
+    transform: translateY(-4px);
+  }
+  .step-connector::after {
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: 100%;
+    width: calc(100% - 48px);
+    height: 1px;
+    background: linear-gradient(90deg, #f68c1e, rgba(246, 140, 30, 0.1));
+  }
+}
